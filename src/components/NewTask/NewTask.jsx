@@ -12,7 +12,7 @@ const NewTask = (props) => {
     setError(null);
     try {
       const response = await fetch(
-        "https://hooks-13a46-default-rtdb.firebaseio.com/tasks.json",
+        "https://react-http-f836f-default-rtdb.firebaseio.com/tasks.json",
         {
           method: "POST",
           body: JSON.stringify({ text: taskText }),
@@ -27,7 +27,6 @@ const NewTask = (props) => {
       }
 
       const data = await response.json();
-
       const generatedId = data.name; // firebase-specific => "name" contains generated id
       const createdTask = { id: generatedId, text: taskText };
 
